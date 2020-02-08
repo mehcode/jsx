@@ -189,22 +189,22 @@ const parseAttributeJSXAttribute = (t, path, attributes, tagName, elementType) =
   value._argument = argument
   value._modifiers = modifiers
 
-  if (rootAttributes.includes(name)) {
+//   if (rootAttributes.includes(name)) {
     attributes[name] = value
-  } else {
-    if (isDirective(name)) {
-      name = kebabcase(name.substr(1))
-      prefix = 'directives'
-    } else {
-      name = [name, ...modifiers].join('_')
-    }
-    if (name.match(xlinkRE)) {
-      name = name.replace(xlinkRE, (_, firstCharacter) => {
-        return 'xlink:' + firstCharacter.toLowerCase()
-      })
-    }
-    addAttribute(t, attributes, prefix, t.objectProperty(t.stringLiteral(name), value))
-  }
+//   } else {
+//     if (isDirective(name)) {
+//       name = kebabcase(name.substr(1))
+//       prefix = 'directives'
+//     } else {
+//       name = [name, ...modifiers].join('_')
+//     }
+//     if (name.match(xlinkRE)) {
+//       name = name.replace(xlinkRE, (_, firstCharacter) => {
+//         return 'xlink:' + firstCharacter.toLowerCase()
+//       })
+//     }
+//     addAttribute(t, attributes, prefix, t.objectProperty(t.stringLiteral(name), value))
+//   }
 }
 
 /**
